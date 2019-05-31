@@ -27,9 +27,33 @@ public class MainActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         lv = findViewById(R.id.lv);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch(position) {
+                    case 0:
+                        Toast.makeText(MainActivity.this, "Apple is Selected", Toast.LENGTH_LONG).show();
+                        break;
+
+                    case 1:
+                        Toast.makeText(MainActivity.this,"Bad is selected",Toast.LENGTH_LONG).show();
+                        break;
+
+                    case 2:
+                        Toast.makeText(MainActivity.this,"cat is selected",Toast.LENGTH_LONG).show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(MainActivity.this,"NO item is selected",Toast.LENGTH_LONG).show();
+
+            }
+        });
+
         al = new ArrayList<>();
-
-
+        al.size();
 
 
         aa = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, al );
